@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_color"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/dark_ligh_color"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tittletext"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_black"
+                    android:gravity="center_horizontal|center"
+                    android:text="Shopping List"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.2"
+                    android:onClick="imageclick" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/dietbtns"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/Stddiet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/mrgn_5"
+            android:background="@drawable/a2_grad"
+            android:fontFamily="@font/robotomedium"
+            android:text="@string/standarddiet"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/vegdiet"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/mrgn_5"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/corner1"
+            android:fontFamily="@font/robotomedium"
+            android:text="@string/vegeteriandiet"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/dietbtns"
+        android:layout_marginBottom="10dp">
+
+        <ScrollView
+            android:id="@+id/scrollstddietfood"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/stddietfood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="@dimen/mrgn10"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_ligh_color"
+                    android:orientation="vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/breakfast"
+                        android:textColor="@color/primary_gradiant"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/brkfast1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/brkfast2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/brkfast3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_ligh_color"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/lunch"
+                        android:textColor="@color/primary_gradiant"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/lunch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/lunch2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/lunch3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_ligh_color"
+                    android:orientation="vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/snack"
+                        android:textColor="@color/primary_gradiant"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/snack1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/snack2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_ligh_color"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/dinner"
+                        android:textColor="@color/primary_gradiant"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/dinner1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/dinner2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/dinner3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/scrollvegdietfood"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/vegdietfood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="@dimen/mrgn10"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_ligh_color"
+                    android:orientation="vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/breakfast"
+                        android:textColor="@color/primary_gradiant"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/vegbrkfast1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/vegbrkfast2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/vegbrkfast3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_ligh_color"
+                    android:layout_marginTop="@dimen/mrgn_5"
+                    android:orientation="vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/lunch"
+                        android:textColor="@color/primary_gradiant"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/veglunch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/veglunch2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/veglunch3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_ligh_color"
+                    android:orientation="vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/snack"
+                        android:textColor="@color/primary_gradiant"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/vegsnack1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/vegsnack2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_ligh_color"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/dinner"
+                        android:textColor="@color/primary_gradiant"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/vegdinner1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/vegdinner2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/seventimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/vegdinner3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="@string/twotimes"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right|center_vertical|center_horizontal|center|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:background="@color/colorAccent"
+            android:src="@drawable/whitedone"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

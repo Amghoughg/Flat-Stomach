@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:checkableBehavior="single">
+        <item android:icon="@drawable/training_plan" android:id="@+id/trainingplan" android:title="Training Plan"/>
+        <item android:icon="@drawable/meals" android:id="@+id/meals_plan" android:title="Meals Plan"/>
+        <item android:icon="@mipmap/reminder" android:id="@+id/reminder" android:title="Reminder"/>
+        <item android:icon="@mipmap/restart" android:id="@+id/restartprogress" android:title="Restart progress"/>
+        <item android:icon="@mipmap/sharemenu" android:id="@+id/share" android:title="Share"/>
+        <item android:icon="@mipmap/rateus" android:id="@+id/rateus" android:title="Rate us"/>
+
+      </group>
+</menu>

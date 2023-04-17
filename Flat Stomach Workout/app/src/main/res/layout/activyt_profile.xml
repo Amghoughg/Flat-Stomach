@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/dark_color"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/r1"
+        android:background="@drawable/a1_grad"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/left_arrow"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Profile"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/gothic"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            />
+
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/r1"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To personalize your plan"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/grey_color"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:id="@+id/rell1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/gender_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/user"/>
+
+
+            <TextView
+                android:id="@+id/t1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/gender_icon"
+                android:fontFamily="@font/gothic"
+                android:gravity="center_horizontal"
+                android:text="Gender  :-"
+                android:textColor="@color/primary_gradiant"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gender_profile"
+                android:layout_toRightOf="@+id/t1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textAlignment="textStart"
+                android:drawablePadding="30dp"
+                android:layout_centerVertical="true"
+                android:hint="No Found Data!"
+                android:textColorHint="@color/bright_foreground_disabled_material_dark"
+                android:text="Gender"
+                android:textColor="@color/grey_color"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/rell2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/age_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/age"/>
+
+
+            <TextView
+                android:id="@+id/t2"
+                android:layout_toRightOf="@+id/age_icon"
+                android:fontFamily="@font/gothic"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:text="Age        :-"
+                android:textColor="@color/primary_gradiant"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+
+            <TextView
+                android:layout_toRightOf="@+id/t2"
+                android:id="@+id/age_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="30dp"
+                android:layout_centerVertical="true"
+                android:textAlignment="textStart"
+                android:hint="No Found Data!"
+                android:text="Age"
+                android:textColorHint="@color/bright_foreground_disabled_material_dark"
+                android:textColor="@color/grey_color"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rell3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/hight_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/hight"/>
+
+
+            <TextView
+                android:id="@+id/t3"
+                android:layout_toRightOf="@+id/hight_icon"
+                android:fontFamily="@font/gothic"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:text="Height    :-"
+                android:textColor="@color/primary_gradiant"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_toRightOf="@+id/t3"
+                android:id="@+id/height_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="30dp"
+                android:hint="No Found Data!"
+                android:layout_centerVertical="true"
+                android:textAlignment="textStart"
+                android:text="Height"
+                android:textColorHint="@color/bright_foreground_disabled_material_dark"
+                android:textColor="@color/grey_color"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/rell4"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/weight_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/weight"/>
+
+
+            <TextView
+                android:id="@+id/t4"
+                android:layout_toRightOf="@+id/weight_icon"
+                android:fontFamily="@font/gothic"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:text="Weight   :-"
+                android:textColor="@color/primary_gradiant"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_toRightOf="@+id/t4"
+                android:id="@+id/weight_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textAlignment="textStart"
+                android:drawablePadding="30dp"
+                android:hint="No Found Data!"
+                android:text="Weight"
+                android:layout_centerVertical="true"
+                android:textColor="@color/grey_color"
+                android:textColorHint="@color/bright_foreground_disabled_material_dark"
+                android:textSize="18sp" />
+
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/change_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:text="    Reset My Profile    "
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:fontFamily="@font/roboto_light"
+        android:background="@drawable/corner1"
+        android:layout_marginBottom="@dimen/mrgnbtm30"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+</RelativeLayout>

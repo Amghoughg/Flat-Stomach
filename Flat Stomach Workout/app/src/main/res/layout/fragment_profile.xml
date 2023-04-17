@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_color">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gothic"
+                android:text="ACCOUNT  :-"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/myprofile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@mipmap/user"
+                android:drawablePadding="30dp"
+                android:gravity="start|center"
+                android:text="My Profile"
+                android:textColor="@color/lightestgrey"
+                android:textSize="16sp"
+                android:typeface="monospace" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/gothic"
+                android:text="WORKOUT  :-"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/reminder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@mipmap/reminder"
+                android:typeface="monospace"
+                android:drawablePadding="30dp"
+                android:gravity="start|center"
+                android:text="Remind Me To WorkOut"
+                android:textColor="@color/lightestgrey"
+                android:textSize="16sp" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/gothic"
+                android:text="GENERAL SETTING  :-"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/reset"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@mipmap/restart"
+                android:drawablePadding="30dp"
+                android:typeface="monospace"
+                android:gravity="start|center"
+                android:text="Reset Progress"
+                android:textColor="@color/lightestgrey"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/gothic"
+                android:text="SUPPORT US  :-"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/rateus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@mipmap/rateus"
+                android:drawablePadding="30dp"
+                android:gravity="start|center"
+                android:text="Rate us"
+                android:typeface="monospace"
+                android:textColor="@color/lightestgrey"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/share"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@mipmap/sharemenu"
+                android:drawablePadding="30dp"
+                android:gravity="start|center"
+                android:text="Share App"
+                android:typeface="monospace"
+                android:textColor="@color/lightestgrey"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/privacypolicy"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="30dp"
+                android:text="  Privacy policy  "
+                android:background="@drawable/corner1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:typeface="monospace" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

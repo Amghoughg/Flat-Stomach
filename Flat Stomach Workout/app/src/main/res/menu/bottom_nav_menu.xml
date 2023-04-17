@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:sweet="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navigation_home"
+        android:enabled="true"
+        android:icon="@mipmap/ic_workout"
+        android:title="Workout"/>
+
+
+
+    <item
+        android:id="@+id/navigation_calculator"
+        android:icon="@mipmap/ic_bmi_cal"
+        android:title="Calculater" />
+
+    <item
+        android:id="@+id/navigation_diet_plan"
+        android:icon="@mipmap/ic_diet_plan"
+        android:title="Diet Plan" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@mipmap/ic_profile"
+        android:title="Me" />
+</menu>

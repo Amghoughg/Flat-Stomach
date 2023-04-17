@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="activity_horizontal_margin">16.0dip</dimen>
+    <dimen name="activity_vertical_margin">16.0dip</dimen>
+    <dimen name="browser_actions_context_menu_max_width">500.0dip</dimen>
+    <dimen name="browser_actions_context_menu_min_padding">20.0dip</dimen>
+
+    <dimen name="fab_margin">16.0dip</dimen>
+    <dimen name="mrgn10">10.0dip</dimen>
+    <dimen name="mrgn20">20.0dip</dimen>
+    <dimen name="mrgn_12">12.0dip</dimen>
+    <dimen name="mrgn_5">5.0dip</dimen>
+    <dimen name="mrgnbtm30">30.0dip</dimen>
+    <dimen name="mrgnbtm_10">10.0dip</dimen>
+    <dimen name="mrgnbtm_56">56.0dip</dimen>
+    <dimen name="mrgnleft_12">12.0dip</dimen>
+    <dimen name="mrgntop15">15.0dip</dimen>
+    <dimen name="mrgntop_10">10.0dip</dimen>
+    <dimen name="navDrawer_header_height">170.0dip</dimen>
+    <dimen name="pad_4">4.0dip</dimen>
+    <dimen name="padleft_10">10.0dip</dimen>
+    <dimen name="padright_10">10.0dip</dimen>
+    <dimen name="timerht_180">240.0dip</dimen>
+    <dimen name="txt16">16.0sp</dimen>
+    <dimen name="txt_20">20.0sp</dimen>
+</resources>

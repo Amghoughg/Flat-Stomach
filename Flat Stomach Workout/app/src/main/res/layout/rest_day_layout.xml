@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    android:background="@color/dark_color"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:id="@+id/exc_details_layout_appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/exc_details_layout_mtoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/dark_ligh_color"
+            android:minHeight="72dp"
+            android:theme="@style/myToolbarTheme"
+            app:navigationIcon="?attr/homeAsUpIndicator">
+
+            <TextView
+                android:id="@+id/exc_details_layout_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_black"
+                android:text="Toolbar Title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_20" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_above="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/mrgn10"
+        android:layout_below="@+id/exc_details_layout_appBarLayout"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/rest_day_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bicycle_crunches_c"
+
+            />
+
+
+        <ImageView
+            android:id="@+id/rest_day_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_above="@+id/tt1"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/corner1"
+            android:padding="10dp"
+            android:src="@mipmap/water_battel" />
+
+
+        <TextView
+            android:id="@+id/tt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_ok"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/mrgnbtm30"
+            android:fontFamily="@font/gothic"
+            android:text="You need to take rest"
+            android:textAlignment="center"
+            android:layout_marginBottom="@dimen/mrgn20"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt16" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom|center_vertical|center_horizontal|center"
+            android:layout_margin="@dimen/mrgn_12"
+            android:background="@drawable/a2_grad"
+            android:onClick="clicked"
+            android:text="OK"
+
+            android:textColor="#fff" />
+
+    </RelativeLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        android:layout_alignParentBottom="true"
+        app:adUnitId="@string/google_baner"
+        />
+</RelativeLayout>

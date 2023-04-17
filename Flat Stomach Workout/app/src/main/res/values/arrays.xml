@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="Side_plank_hip_left">
+        <item>@drawable/sideplankhipleft1</item>
+        <item>@drawable/sideplankhipleft2</item>
+    </array>
+    <array name="Side_plank_hip_right">
+        <item>@drawable/sideplankhipright1</item>
+        <item>@drawable/sideplankhipright2</item>
+    </array>
+    <array name="V_sits">
+        <item>@drawable/vsit1</item>
+        <item>@drawable/vsit2</item>
+    </array>
+    <array name="Windshield_wipers">
+        <item>@drawable/windshield1</item>
+        <item>@drawable/windshield2</item>
+        <item>@drawable/windshield1</item>
+        <item>@drawable/windshield3</item>
+    </array>
+    <array name="bent_leg_twist">
+        <item>@drawable/bent_leg_twist_a</item>
+        <item>@drawable/bent_leg_twist_b</item>
+        <item>@drawable/bent_leg_twist_a</item>
+        <item>@drawable/bent_leg_twist_c</item>
+    </array>
+    <array name="bicycle_crunches">
+        <item>@drawable/bicycle_crunches_a</item>
+        <item>@drawable/bicycle_crunches_b</item>
+        <item>@drawable/bicycle_crunches_a</item>
+        <item>@drawable/bicycle_crunches_c</item>
+    </array>
+    <array name="butt_bridge">
+        <item>@drawable/butt_bridge_a</item>
+        <item>@drawable/butt_bridge_b</item>
+    </array>
+    <array name="clapping_crunches">
+        <item>@drawable/clapping_crunches_a</item>
+        <item>@drawable/clapping_crunches_b</item>
+        <item>@drawable/clapping_crunches_a</item>
+        <item>@drawable/clapping_crunches_c</item>
+    </array>
+    <array name="cross_arm_crunches">
+        <item>@drawable/cross_arm_crunches_a</item>
+        <item>@drawable/cross_arm_crunches_b</item>
+    </array>
+    <array name="cross_body_mountain_climber">
+        <item>@drawable/cross_body_mountain_climber1</item>
+        <item>@drawable/cross_body_mountain_climber2</item>
+        <item>@drawable/cross_body_mountain_climber1</item>
+        <item>@drawable/cross_body_mountain_climber3</item>
+    </array>
+    <array name="day1">
+        <item>@string/trunk_rotation</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day10">
+        <item>@string/trunk_rotation</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/russian_twist</item>
+        <item>@string/side_leg_rise_left</item>
+        <item>@string/side_leg_rise_right</item>
+        <item>@string/cross_arm_crunches</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day10_cycles">
+        <item>20</item>
+        <item>14</item>
+        <item>16</item>
+        <item>14</item>
+        <item>14</item>
+        <item>14</item>
+        <item>20</item>
+    </array>
+    <array name="day11">
+        <item>@string/trunk_rotation</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/dead_bug</item>
+        <item>@string/long_arm_crunches</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day11_cycles">
+        <item>25</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>12</item>
+        <item>16</item>
+        <item>16</item>
+        <item>20</item>
+    </array>
+    <array name="day12"></array>
+    <array name="day12_cycles"></array>
+    <array name="day13">
+        <item>@string/trunk_rotation</item>
+        <item>@string/reclined_oblique_twist</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/reverse_crunches</item>
+        <item>@string/standing_bicycle</item>
+        <item>@string/long_arm_crunches</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day13_cycles">
+        <item>25</item>
+        <item>12</item>
+        <item>18</item>
+        <item>14</item>
+        <item>16</item>
+        <item>12</item>
+        <item>12</item>
+        <item>20</item>
+    </array>
+    <array name="day14">
+        <item>@string/trunk_rotation</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day14_cycles">
+        <item>25</item>
+        <item>18</item>
+        <item>12</item>
+        <item>16</item>
+        <item>14</item>
+        <item>12</item>
+        <item>20</item>
+    </array>
+    <array name="day15">
+        <item>@string/trunk_rotation</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day15_cycles">
+        <item>25</item>
+        <item>12</item>
+        <item>16</item>
+        <item>14</item>
+        <item>12</item>
+        <item>18</item>
+        <item>20</item>
+    </array>
+    <array name="day16"></array>
+    <array name="day16_cycles"></array>
+    <array name="day17">
+        <item>@string/trunk_rotation</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day17_cycles">
+        <item>30</item>
+        <item>12</item>
+        <item>18</item>
+        <item>14</item>
+        <item>16</item>
+        <item>12</item>
+        <item>25</item>
+    </array>
+    <array name="day18">
+        <item>@string/trunk_rotation</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day18_cycles">
+        <item>30</item>
+        <item>12</item>
+        <item>12</item>
+        <item>14</item>
+        <item>12</item>
+        <item>16</item>
+        <item>25</item>
+    </array>
+    <array name="day19">
+        <item>@string/trunk_rotation</item>
+        <item>@string/long_arm_crunches</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/bicycle_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/dead_bug</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day19_cycles">
+        <item>30</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>12</item>
+        <item>12</item>
+        <item>25</item>
+    </array>
+    <array name="day1_cycles">
+        <item>25</item>
+        <item>12</item>
+        <item>14</item>
+        <item>18</item>
+        <item>10</item>
+        <item>12</item>
+        <item>20</item>
+    </array>
+    <array name="day2">
+        <item>@string/trunk_rotation</item>
+        <item>@string/bicycle_crunches</item>
+        <item>@string/reverse_crunches</item>
+        <item>@string/bent_leg_twist</item>
+        <item>@string/reclined_oblique_twist</item>
+        <item>@string/russian_twist</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day20"></array>
+    <array name="day20_cycles"></array>
+    <array name="day21">
+        <item>@string/trunk_rotation</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day21_cycles">
+        <item>30</item>
+        <item>12</item>
+        <item>16</item>
+        <item>12</item>
+        <item>16</item>
+        <item>12</item>
+        <item>30</item>
+    </array>
+    <array name="day22">
+        <item>@string/trunk_rotation</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/bicycle_crunches</item>
+        <item>@string/dead_bug</item>
+        <item>@string/reclined_oblique_twist</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day22_cycles">
+        <item>30</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>14</item>
+        <item>14</item>
+        <item>14</item>
+        <item>30</item>
+    </array>
+    <array name="day23">
+        <item>@string/trunk_rotation</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day23_cycles">
+        <item>30</item>
+        <item>16</item>
+        <item>14</item>
+        <item>12</item>
+        <item>14</item>
+        <item>14</item>
+        <item>30</item>
+    </array>
+    <array name="day24"></array>
+    <array name="day24_cycles"></array>
+    <array name="day25">
+        <item>@string/trunk_rotation</item>
+        <item>@string/standing_bicycle</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/dead_bug</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day25_cycles">
+        <item>30</item>
+        <item>12</item>
+        <item>12</item>
+        <item>14</item>
+        <item>14</item>
+        <item>16</item>
+        <item>16</item>
+        <item>18</item>
+        <item>30</item>
+    </array>
+    <array name="day26">
+        <item>@string/trunk_rotation</item>
+        <item>@string/reclined_oblique_twist</item>
+        <item>@string/reverse_crunches</item>
+        <item>@string/bent_leg_twist</item>
+        <item>@string/bicycle_crunches</item>
+        <item>@string/russian_twist</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day26_cycles">
+        <item>30</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>12</item>
+        <item>30</item>
+    </array>
+    <array name="day27">
+        <item>@string/trunk_rotation</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day27_cycles">
+        <item>30</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>12</item>
+        <item>30</item>
+    </array>
+    <array name="day28"></array>
+    <array name="day28_cycles"></array>
+    <array name="day29">
+        <item>@string/trunk_rotation</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day29_cycles">
+        <item>30</item>
+        <item>16</item>
+        <item>18</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>30</item>
+    </array>
+    <array name="day2_cycles">
+        <item>25</item>
+        <item>16</item>
+        <item>12</item>
+        <item>10</item>
+        <item>12</item>
+        <item>16</item>
+        <item>20</item>
+    </array>
+    <array name="day3">
+        <item>@string/trunk_rotation</item>
+        <item>@string/cross_arm_crunches</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/standing_bicycle</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day30">
+        <item>@string/trunk_rotation</item>
+        <item>@string/standing_bicycle</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/side_leg_rise_right</item>
+        <item>@string/reverse_crunches</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/side_leg_rise_left</item>
+        <item>@string/dead_bug</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day30_cycles">
+        <item>30</item>
+        <item>12</item>
+        <item>14</item>
+        <item>18</item>
+        <item>12</item>
+        <item>12</item>
+        <item>18</item>
+        <item>18</item>
+        <item>30</item>
+    </array>
+    <array name="day3_cycles">
+        <item>25</item>
+        <item>16</item>
+        <item>12</item>
+        <item>14</item>
+        <item>10</item>
+        <item>18</item>
+        <item>20</item>
+    </array>
+    <array name="day4"></array>
+    <array name="day4_cycles"></array>
+    <array name="day5">
+        <item>@string/trunk_rotation</item>
+        <item>@string/leg_drops</item>
+        <item>@string/reverse_crunches</item>
+        <item>@string/cross_arm_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day5_cycles">
+        <item>25</item>
+        <item>14</item>
+        <item>12</item>
+        <item>16</item>
+        <item>18</item>
+        <item>14</item>
+        <item>20</item>
+    </array>
+    <array name="day6">
+        <item>@string/trunk_rotation</item>
+        <item>@string/reclined_oblique_twist</item>
+        <item>@string/side_leg_rise_left</item>
+        <item>@string/side_leg_rise_right</item>
+        <item>@string/long_arm_crunches</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day6_cycles">
+        <item>25</item>
+        <item>12</item>
+        <item>14</item>
+        <item>14</item>
+        <item>14</item>
+        <item>14</item>
+        <item>20</item>
+    </array>
+    <array name="day7">
+        <item>@string/trunk_rotation</item>
+        <item>@string/standing_bicycle</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/leg_drops</item>
+        <item>@string/long_arm_crunches</item>
+        <item>@string/cross_arm_crunches</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day7_cycles">
+        <item>25</item>
+        <item>14</item>
+        <item>14</item>
+        <item>12</item>
+        <item>12</item>
+        <item>16</item>
+        <item>16</item>
+        <item>20</item>
+    </array>
+    <array name="day8"></array>
+    <array name="day8_cycles"></array>
+    <array name="day9">
+        <item>@string/trunk_rotation</item>
+        <item>@string/mountain_climber</item>
+        <item>@string/clapping_crunches</item>
+        <item>@string/swimming_and_superman</item>
+        <item>@string/butt_bridge</item>
+        <item>@string/flutter_kicks</item>
+        <item>@string/plank</item>
+    </array>
+    <array name="day9_cycles">
+        <item>20</item>
+        <item>16</item>
+        <item>18</item>
+        <item>16</item>
+        <item>16</item>
+        <item>14</item>
+        <item>20</item>
+    </array>
+    <array name="day_list">
+        <item>@string/mon</item>
+        <item>@string/tu</item>
+        <item>@string/wed</item>
+        <item>@string/thri</item>
+        <item>@string/fri</item>
+        <item>@string/sat</item>
+        <item>@string/sun</item>
+    </array>
+    <array name="dead_bug">
+        <item>@drawable/dead_bug_a</item>
+        <item>@drawable/dead_bug_b</item>
+        <item>@drawable/dead_bug_a</item>
+        <item>@drawable/dead_bug_c</item>
+    </array>
+    <array name="flutter_kicks">
+        <item>@drawable/flutter_kicks_a</item>
+        <item>@drawable/flutter_kicks_b</item>
+        <item>@drawable/flutter_kicks_a</item>
+        <item>@drawable/flutter_kicks_c</item>
+    </array>
+    <array name="leg_drops">
+        <item>@drawable/leg_drop_a</item>
+        <item>@drawable/leg_drop_b</item>
+    </array>
+    <array name="long_arm_crunches">
+        <item>@drawable/long_arm_crunches_a</item>
+        <item>@drawable/long_arm_crunches_b</item>
+    </array>
+    <array name="mountain_climber">
+        <item>@drawable/mountain_climbers_a</item>
+        <item>@drawable/mountain_climbers_c</item>
+        <item>@drawable/mountain_climbers_d</item>
+        <item>@drawable/mountain_climbers_c</item>
+    </array>
+    <array name="plank">
+        <item>@drawable/plank_a</item>
+    </array>
+    <array name="reclined_oblique_twist">
+        <item>@drawable/reclined_oblique_twist_a</item>
+        <item>@drawable/reclined_oblique_twist_b</item>
+        <item>@drawable/reclined_oblique_twist_a</item>
+        <item>@drawable/reclined_oblique_twist_c</item>
+    </array>
+    <array name="reverse_crunch_advance">
+        <item>@drawable/reverse_crunch_advance1</item>
+        <item>@drawable/reverse_crunch_advance2</item>
+        <item>@drawable/reverse_crunch_advance3</item>
+    </array>
+    <array name="reverse_crunches">
+        <item>@drawable/reverse_crunches_a</item>
+        <item>@drawable/reverse_crunches_b</item>
+    </array>
+    <array name="roll_up">
+        <item>@drawable/roll_up1</item>
+        <item>@drawable/roll_up2</item>
+        <item>@drawable/roll_up3</item>
+        <item>@drawable/roll_up1</item>
+    </array>
+    <array name="russian_twist">
+        <item>@drawable/russian_twist_a</item>
+        <item>@drawable/russian_twist_b</item>
+    </array>
+    <array name="side_leg_rise_left">
+        <item>@drawable/side_leg_raise_lefta</item>
+        <item>@drawable/side_leg_raise_left_b</item>
+    </array>
+    <array name="side_leg_rise_right">
+        <item>@drawable/side_leg_raise_right_a</item>
+        <item>@drawable/side_leg_raise_right_b</item>
+    </array>
+    <array name="standing_bicycle">
+        <item>@drawable/standing_bicycle_crunches_a</item>
+        <item>@drawable/standing_bicycle_crunches_b</item>
+        <item>@drawable/standing_bicycle_crunches_c</item>
+        <item>@drawable/standing_bicycle_crunches_d</item>
+    </array>
+    <array name="swimming_and_superman">
+        <item>@drawable/swimmer_and_superman_a</item>
+        <item>@drawable/swimmer_and_superman_b</item>
+        <item>@drawable/swimmer_and_superman_a</item>
+        <item>@drawable/swimmer_and_superman_c</item>
+    </array>
+    <array name="tips">
+        <item>@string/tip1</item>
+        <item>@string/tip2</item>
+        <item>@string/tip3</item>
+        <item>@string/tip4</item>
+        <item>@string/tip5</item>
+        <item>@string/tip6</item>
+        <item>@string/tip7</item>
+        <item>@string/tip8</item>
+        <item>@string/tip9</item>
+        <item>@string/tip10</item>
+    </array>
+    <array name="trunk_rotation">
+        <item>@drawable/trunk_rotation_a</item>
+        <item>@drawable/trunk_rotation_b</item>
+    </array>
+</resources>

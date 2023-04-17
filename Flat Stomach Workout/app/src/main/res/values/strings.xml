@@ -1,0 +1,205 @@
+<resources>
+    <string name="app_name">Flat Stomach Workout for Women - Burn Belly Fat</string>
+    <string name="title">Weight Loss</string>
+
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+
+    <string name="google_baner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="g_inr">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="g_native">ca-app-pub-3940256099942544/2247696110</string>
+
+
+    <string name="Breadtoastwithpeanutbutter">Bread toast with peanut butter</string>
+    <string name="Brownrice">Brown rice</string>
+    <string name="Brownricewithsalamonandmushroom">Brown rice with salamon and mushroom</string>
+    <string name="Carrotcucumbercabbagetomatobeansspinachlettuce">Carrot, cucumber, cabbage, tomato, beans, spinach, lettuce</string>
+    <string name="Chickenbreasts">Chicken breasts</string>
+    <string name="Chickensoup">Chicken Soup</string>
+    <string name="Chickenwheatwrapwithveggies">Chicken wheat wrap with veggies</string>
+    <string name="Dairyproducts">DAIRY PRODUCTS</string>
+    <string name="Drinks">DRINKS</string>
+    <string name="Eggs">Eggs</string>
+    <string name="FishTunaorsalmon">Fish-Tuna or salmon</string>
+    <string name="Fruits">FRUITS</string>
+    <string name="Herbsspices">Herbs,spices</string>
+    <string name="Lemon">Lemon</string>
+    <string name="Meat">MEAT</string>
+    <string name="Oatmealcookies">Oatmeal cookies</string>
+    <string name="Oats">Oats</string>
+    <string name="Ricecerealsandnuts">RICE, CEREALS &amp; NUTS</string>
+    <string name="Snacks">SNACKS</string>
+    <string name="Vegetables">VEGETABLES</string>
+    <string name="Wheat">Wheat</string>
+
+    <string name="aboveaverageheight">Above Average Height. Do meditation and yoga to stay positive. Be more confident. Always avoid negative thoughts. Continue your daily exercise with proper diet food.</string>
+    <string name="age">Age</string>
+
+    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="applebananaorangepineappleblueberry">Apple, banana, orange, pineapple,blueberry</string>
+    <string name="averageheight">Average Height. Do exercise regularly to maintain your average height. Do cycling and swimming on alternate days. Maintain your balanced food and add more fresh fruits and leafy vegetables</string>
+    <string name="belowaverageheight">Below Average Height. Improve your posture. Walk outside more on sunny days. Eat proper nutrition food. Build up your immunity. Do stretching and hanging exercise regularly.</string>
+    <string name="bmikgm">BMI (KG/M²)</string>
+    <string name="bottom_sheet_behavior">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="brownricewithmushroom">Brown rice with mushroom</string>
+    <string name="brownricewithtuneandveggies">Brown rice with tuna and veggies</string>
+    <string name="brownricewithveggies">Brown rice with veggies</string>
+    <string name="carrotcucumbercabbagetomatobeansspinachlettucemushroom">Carrot, cucumber, cabbage, tomato, beans, spinach, lettuce, mushroom</string>
+    <string name="coffeepowder">coffee powder</string>
+
+    <string name="cornflakes">corn flakes</string>
+    <string name="cornflakeswithmilkandblueberries">Corn flakes with milk and blueberries</string>
+    <string name="cycles">cycles</string>
+    <string name="day1">Day 1</string>
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+
+    <string name="dinner">Dinner</string>
+    <string name="extralongheight">Extra Long Height. Practice Yoga Asanas and take enough rest and sleep well. Eat at the right time. Be more confident. Improve your posture. Maintain your balanced food and add more fresh fruits and leafy vegetables</string>
+    <string name="fab_transformation_scrim_behavior">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
+    <string name="fab_transformation_sheet_behavior">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="fatfreemilk">Fat-free milk</string>
+    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
+    <string name="female">Female</string>
+    <string name="firebase_database_url">https://height-gain-7eb44.firebaseio.com</string>
+    <string name="fiveoatmealcookies">5 oatmeal cookies</string>
+    <string name="fri">Friday</string>
+    <string name="fruitsalad">Fruit salad</string>
+    <string name="ft">ft</string>
+
+    <string name="gender">Gender</string>
+
+
+    <string name="greenteapowder">Green tea powder</string>
+    <string name="height">Height</string>
+    <string name="hide_bottom_view_on_scroll_behavior">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
+    <string name="in">in</string>
+    <string name="kg">kg</string>
+    <string name="lb">lb</string>
+    <string name="lunch">Lunch</string>
+    <string name="male">Male</string>
+    <string name="mixedvegetablesoup">Mixed vegetable soup</string>
+    <string name="mixedvegetablewrap">Mixed vegetable wrap</string>
+    <string name="mon">Monday</string>
+
+
+    <string name="noreminders">Please set reminder</string>
+    <string name="oats">Oats</string>
+    <string name="oneapple">one apple</string>
+    <string name="oneboiledegg">1 boiled egg</string>
+    <string name="onecupofblackcoffee">1 cup of black Coffee</string>
+    <string name="onecupofgreentea">1 cup of green tea</string>
+    <string name="onecupofherbaltea">1 cup of herbal tea</string>
+    <string name="oneglassoffreshlimejuice">1 glass of fresh lime juice</string>
+    <string name="onerobustabanana">One Robusta banana</string>
+    <string name="onescrambledegg">1 Scrambled egg</string>
+    <string name="repeat">Repeat</string>
+    <string name="sat">Saturday</string>
+    <string name="search_menu_title">Search</string>
+    <string name="seconds">seconds</string>
+    <string name="set">Set</string>
+    <string name="set_your_preferable_exercise_time">Set Your preferable exercise time</string>
+    <string name="seventimes">*7 times</string>
+    <string name="snack">Snack</string>
+    <string name="standarddiet">Standard Diet</string>
+    <string name="start">Start</string>
+    <string name="sun">Sunday</string>
+    <string name="thri">Thrusday</string>
+    <string name="tip1">Avoid injuries. Carefully follow the instructions, for each of the workouts, to prevent injuries.</string>
+    <string name="tip10">Get adequate sleep of around 7 -8 hours. Insufficient sleep can lead to heart diseases, high blood pressure, diabetes, obesity etc.</string>
+    <string name="tip2">For your workout, buy shoes that are comfortable. It is better to go for training shoes, as it will give you the comfort and the grip that you are looking for. Replace shoes once in six months.</string>
+    <string name="tip3">Exercise in the morning. Exercising in the morning promotes weight loss, prevents diabetes, lowers blood pressure, keeps you active throughout the day and has many more benefits.</string>
+    <string name="tip4">Have a complete breakfast. Let the breakfast be the heaviest meal in the day. After a good night sleep, you need a nutritious breakfast to kick start your day.</string>
+    <string name="tip5">Drink sufficient quantity of water. Men should consume about 3.7 liters of water per day and women should consume about 2.7 liters of water per day.</string>
+    <string name="tip6">Always make sure, you have a rest day in between your workout days. Let every fourth day be a rest day. Taking rest will help your muscles to grow.</string>
+    <string name="tip7">Avoid junk food as it is high in calories. Junk food can cause obesity, heart diseases and other health conditions.</string>
+    <string name="tip8">Eat a healthy diet. Consume protein rich and low calorie food, as it gives you sufficient strength during workouts and builds muscles.</string>
+    <string name="tip9">Increase your fiber intake. Fiber intake aids digestion and also helps to Flat Stomach and improves your heart health. Consume fiber rich food like beans, broccoli, oatmeal etc.</string>
+    <string name="tomatosoup">Tomato soup</string>
+    <string name="tooshortheight"> To Flat Stomach Manage eat more green vegetables and fruits. Eat at the right time. Do Yoga and meditation. Exposure to more sunlight. Avoid alcohol, smoking and stress. Do stretching and hanging exercise regularly.</string>
+    <string name="tu">Tuesday</string>
+    <string name="tweleve">*12 eggs</string>
+    <string name="twelevetimes">*12 times</string>
+    <string name="twotimes">*2 times</string>
+    <string name="vegetablewheatwrap">Vegetable wheat wrap</string>
+    <string name="vegeteriandiet">Vegetarian Diet</string>
+    <string name="vegsandwich">Veg sandwich</string>
+    <string name="veryshort">Very Short Height. Do stretching and hanging exercise regularly. To increase your height follow our prescribed diet plan food. Eat more green veggies and fruits and avoid junk food.</string>
+    <string name="wed">Wednesday</string>
+    <string name="weight">Weight</string>
+    <string name="wholewheatmultigrainbread">Whole wheat multigrain bread</string>
+    <string name="yogurt">Yogurt</string>
+
+    <string name="bicycle_crunches">bicycle crunches</string>
+    <string name="butt_bridge">butt bridge</string>
+    <string name="clapping_crunches">clapping crunches</string>
+    <string name="flutter_kicks">flutter kicks</string>
+    <string name="plank">plank</string>
+    <string name="side_leg_rise_left">side leg rise left</string>
+    <string name="side_leg_rise_right">side leg rise right</string>
+    <string name="swimming_and_superman">swimmer and superman</string>
+
+
+    <string name="reverse_crunch_advance">Reverse crunch advance</string>
+    <string name="reverse_crunch_advance_desc">Lay on your back with your arms down by your sides and your legs straight up towards the ceiling, Focus on engaging your lower abs to lift your pelvis and hips off the mat as you press your legs up towards the ceiling a few inches, With control, lower your hips back down to the floor.</string>
+    <string name="reverse_crunches">Reverse Crunches</string>
+    <string name="reverse_crunches_desc">Lie down on your back and bend your knees Now, bring your knees towards your head, by keeping your hands on your head.</string>
+
+    <string name="cross_body_mountain_climber">Cross Body Mountain Climber</string>
+    <string name="cross_body_mountain_climber_desc">Get into a push-up position and make your hands are slightly wider than shoulder-width apart Your body should form a straight line from the feet to your head, Tighten your core and maintain the contraction the entire time, Bring one knee toward the opposite elbow, Return to the starting position to repeat on the other side.</string>
+
+    <string name="roll_up">Roll Up</string>
+    <string name="roll_up_desc">Lie faceup, with legs extended, knees together, feet flexed, arms overhead, Take a big inhale As you exhale, lift arms up and forward, and use your abs to slowly roll up to a sitting position Squeezing abs again, slowly lower down to starting position.</string>
+
+    <string name="Side_plank_hip_left">Side plank hip Left</string>
+    <string name="Side_plank_hip_left_desc">Lay on your Left side, stacking your hips and feet ,Position your bottom Left elbow directly under your Left shoulder, Lift your bottom hip off the ground to create a straight line in a plank, Reach your top hand towards the ceiling Now lower the bottom hip down towards the floor, and lift the hip back up Repeat on other side</string>
+
+    <string name="Side_plank_hip_right">Side plank hip Right</string>
+    <string name="Side_plank_hip_right_desc">Lay on your Right side, stacking your hips and feet ,Position your bottom Right elbow directly under your Right shoulder, Lift your bottom hip off the ground to create a straight line in a plank, Reach your top hand towards the ceiling Now lower the bottom hip down towards the floor, and lift the hip back up Repeat on other side</string>
+
+    <string name="V_sits">V sits</string>
+    <string name="V_sits_desc">Sit erect on your mat, with your legs stretched out in front of you,Lean back Breathe out and lift your legs such that they are at 45-degree angles with the floor Straighten your knees and lift your toes to the eye level Ensure you are sitting on your buttocks and tailbone Now, raise your arms and stretch them out such that they are parallel to the floor as well as to each other Make sure your lower abdomen is firm, but not thick and hard Breathe out and come to initial position Repeat 6-8 times.</string>
+
+    <string name="Windshield_wipers">Windshield wipers</string>
+    <string name="Windshield_wipers_desc">Lie down on the floor and raise your legs 90 degrees Spread your arms straight out to your sides for support Rotate your legs to one side, stopping short of touching the floor Repeat on other side</string>
+
+    <string name="trunk_rotation">Trunk Rotation</string>
+    <string name="trunk_rotation_desc">Initially,stand by keeping your feet, few inches wide Now,slightly bend your knees and raise your arms by bending your elbows Move your body to the left and to the right Repeat this,</string>
+
+    <string name="mountain_climber">Mountain Climber</string>
+    <string name="mountain_climber_desc">Initially, be in the push-up position By keeping the left leg straight, bend your right knee Now, move to the initial position and repeat the same on the other leg Let the switching between the sides be fast,</string>
+
+    <string name="russian_twist">Russian Twist</string>
+    <string name="russian_twist_desc">Sit on the mat, by bending your knees Slightly lean back, with feet above the ground and clasp your hands Twist your arms to the left and right.</string>
+
+    <string name="cross_arm_crunches">Cross arm crunches</string>
+    <string name="cross_arm_crunches_desc">Lie down by bending your knees Keep your arms crossed on your chest Raise your upper body and return to the initial position Repeat it.</string>
+
+    <string name="dead_bug">Dead Bug</string>
+    <string name="dead_bug_desc">Start by lying with your back on the ground Raise your knees and make it perpendicuar to the ground Stretch your arms, pointing towards the ceiling Now, stretch your right arm towards your head and lower your left leg Return back to the starting position Repeat it on the other side.</string>
+
+    <string name="long_arm_crunches">Long Arm Crunches</string>
+    <string name="long_arm_crunches_desc">Lie down with your knees bent Stretch your arms towards your head Raise your upper body to a 30 degree angle Return back to the initial position Repeat this.</string>
+
+    <string name="reclined_oblique_twist">Reclined Oblique Twist</string>
+    <string name="reclined_oblique_twist_desc">Lie down on your back Raise your upper body, with your elbows on the side for support Raise your left leg and reach the ankle, using your right hand Return back to the initial position and repeat the same on the other side.</string>
+
+    <string name="standing_bicycle">Standing Bicycle</string>
+    <string name="standing_bicycle_desc">Stand with your feet, few inches apart Raise your right knee towards your left elbow Return back to the initial position Repeat the same on the other side.</string>
+
+    <string name="bent_leg_twist">Bent Leg Twist</string>
+    <string name="bent_leg_twist_desc">Lie down on your back, with your arms stretched to the side Raise your legs and bend your knees at 90 degree angle Now twist your knees to the left Stay in this position for 1-2 minutes Return to the initial position and do the same on the right side.</string>
+
+    <string name="leg_drops">Leg Drops</string>
+    <string name="leg_drops_desc">Start by lying with your back on the ground Keep your hands on the side and lift both your legs to a 90 degree angle Feel the pressure on your abs Now, slightly lower your legs and return back Repeat this.</string>
+
+    <string name="plank_desc">Be on your toes and forearms with your body straight Stay in this position for as long as possible.</string>
+
+    <string name="clapping_crunches_desc">Lie down on the ground Raise your upper body and bend your knees Now, clap under the knees, by lifting the legs alternatively,</string>
+    <string name="swimming_and_superman_desc">Lie down with your face downwards, by stretching your hands forward Raise your opposite arm and leg alternatively,</string>
+    <string name="butt_bridge_desc">Start by lying on your back Bend your legs Take the support of your hands on the side, and lift the butt up, then bring it down Repeat it.</string>
+    <string name="flutter_kicks_desc">Start by lying on your back Keep your arms on the side and lift your legs Let the legs be as straight as possible Now, quickly raise your right leg and at the same time, lower your left leg Then do the same on the other leg Repeat it.</string>
+    <string name="bicycle_crunches_desc">Lie down by keeping your hand, on the back of your head Lift your right knee and stretch your left elbow towards it Repeat the same for the other side.</string>
+    <string name="side_leg_rise_left_desc">Start by lying on your side, with the head, resting on the right arm Now, lift your left leg and then come back to the initial position Repeat it.</string>
+    <string name="side_leg_rise_right_desc">Start by lying on your side, with the head, resting on the left arm Now, lift your right leg and then come back to the initial position Repeat it.</string>
+
+</resources>

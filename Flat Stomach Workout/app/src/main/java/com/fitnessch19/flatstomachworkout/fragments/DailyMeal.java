@@ -1,0 +1,1193 @@
+package com.fitnessch19.flatstomachworkout.fragments;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.graphics.PorterDuff.Mode;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+
+import com.fitnessch19.flatstomachworkout.R;
+import com.fitnessch19.flatstomachworkout.activities.AdmobAds;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdRequest.Builder;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+public class DailyMeal extends Fragment {
+    public static final String TAG = "DailyMeal";
+    public AdRequest adRequest;
+    public LayoutInflater ad_inflater;
+    public AdmobAds admobAdsObject = null;
+    public Boolean complete;
+    public FloatingActionButton completed;
+    public InterstitialAd interstitial;
+    public Button mBtnStdDiet;
+    public Button mBtnVegDiet;
+    public LinearLayout mLayoutStdDiet;
+    public LinearLayout mLayoutVegDiet;
+    public SharedPreferences mSharedPreferences;
+    public Editor prefsEditor;
+    public int screenHeight;
+    public int screenWidth;
+    public ScrollView scrollstddietfood;
+    public ScrollView scrollvegdietfood;
+    public LinearLayout stddiet_nativeAdContainer ;
+    public Boolean stddietenabled;
+    public LinearLayout vegdiet_nativeAdContainer = null;
+    public Boolean vegdietenabled;
+
+
+    public void requestNewInterstitial() {
+        this.interstitial.loadAd(this.adRequest);
+    }
+
+    private void setAdmodAds() {
+        this.interstitial = new InterstitialAd(getActivity());
+        this.interstitial.setAdUnitId(getString(R.string.g_inr));
+        this.adRequest = new Builder().build();
+        this.interstitial.setAdListener(new AdListener() {
+            public void onAdClosed() {
+                super.onAdClosed();
+                DailyMeal.this.requestNewInterstitial();
+            }
+        });
+        requestNewInterstitial();
+    }
+
+    public void a() {
+        this.admobAdsObject = new AdmobAds(getActivity(), this.stddiet_nativeAdContainer,getString(R.string.g_native));
+        this.admobAdsObject.refreshAd();
+    }
+
+    public void b() {
+        this.admobAdsObject = new AdmobAds(getActivity(), this.vegdiet_nativeAdContainer,getString(R.string.g_native));
+        this.admobAdsObject.refreshAd();
+    }
+
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+    }
+
+
+
+
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        TextView textView;
+        String str;
+        TextView textView2;
+        TextView textView3;
+        String str2;
+        DailyMeal dailyMeal = this;
+        setAdmodAds();
+        View inflate = layoutInflater.inflate(R.layout.layout_dailymeal, viewGroup, false);
+        inflate.setTag(TAG);
+        getArguments().getInt("DAY");
+        Display defaultDisplay = ((WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        defaultDisplay.getMetrics(displayMetrics);
+        dailyMeal.screenWidth = displayMetrics.widthPixels;
+        dailyMeal.screenHeight = displayMetrics.heightPixels;
+        Toolbar toolbar = (Toolbar) inflate.findViewById(R.id.toolbar);
+        TextView textView4 = (TextView) toolbar.findViewById(R.id.tittletext);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Day ");
+        sb.append(getArguments().getInt("DAY"));
+        textView4.setText(sb.toString());
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+        dailyMeal.setHasOptionsMenu(true);
+        toolbar.getNavigationIcon().mutate().setColorFilter(getResources().getColor(R.color.black), Mode.SRC_IN);
+        dailyMeal.scrollstddietfood = (ScrollView) inflate.findViewById(R.id.scrollstddietfood);
+        dailyMeal.scrollvegdietfood = (ScrollView) inflate.findViewById(R.id.scrollvegdietfood);
+        dailyMeal.mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        dailyMeal.prefsEditor = dailyMeal.mSharedPreferences.edit();
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append("DAY_");
+        sb2.append(getArguments().getInt("DAY"));
+        sb2.append("_CHECKED");
+        String sb3 = sb2.toString();
+        StringBuilder sb4 = new StringBuilder();
+        sb4.append("DAY_");
+        sb4.append(getArguments().getInt("DAY"));
+        sb4.append("_STDDIET");
+        String sb5 = sb4.toString();
+        StringBuilder sb6 = new StringBuilder();
+        sb6.append("DAY_");
+        sb6.append(getArguments().getInt("DAY"));
+        sb6.append("_VEGDIET");
+        String sb7 = sb6.toString();
+        dailyMeal.complete = Boolean.valueOf(dailyMeal.mSharedPreferences.getBoolean(sb3, false));
+        dailyMeal.stddietenabled = Boolean.valueOf(dailyMeal.mSharedPreferences.getBoolean(sb5, false));
+        dailyMeal.vegdietenabled = Boolean.valueOf(dailyMeal.mSharedPreferences.getBoolean(sb7, false));
+        dailyMeal.completed = (FloatingActionButton) inflate.findViewById(R.id.fab);
+
+
+        dailyMeal.mBtnStdDiet = (Button) inflate.findViewById(R.id.Stddiet);
+        dailyMeal.mBtnVegDiet = (Button) inflate.findViewById(R.id.vegdiet);
+
+        mBtnStdDiet.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+//                mBtnStdDiet.setTextColor(R.color.blue);
+//                mBtnVegDiet.setTextColor(R.color.black);
+//                scrollstddietfood.setVisibility(View.VISIBLE);
+//                scrollvegdietfood.setVisibility(View.GONE);
+
+                if (scrollstddietfood.getVisibility() == View.VISIBLE)
+                {
+
+                    scrollvegdietfood.setVisibility(View.GONE);
+                    scrollstddietfood.setVisibility(View.VISIBLE);
+                    mBtnStdDiet.setTextColor(getResources().getColor(R.color.white));
+                    mBtnVegDiet.setTextColor(getResources().getColor(R.color.black));
+                    mBtnStdDiet.setBackground(getResources().getDrawable(R.drawable.a2_grad));
+                    mBtnVegDiet.setBackground(getResources().getDrawable(R.drawable.corner1));
+                }
+                else
+                {
+                    scrollvegdietfood.setVisibility(View.GONE);
+                    scrollstddietfood.setVisibility(View.VISIBLE);
+                    mBtnStdDiet.setTextColor(getResources().getColor(R.color.white));
+                    mBtnVegDiet.setTextColor(getResources().getColor(R.color.black));
+                    mBtnStdDiet.setBackground(getResources().getDrawable(R.drawable.a2_grad));
+                    mBtnVegDiet.setBackground(getResources().getDrawable(R.drawable.corner1));
+                }
+
+
+
+            }
+        });
+        mBtnVegDiet.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View v) {
+//                mBtnStdDiet.setTextColor(R.color.black);
+//                mBtnVegDiet.setTextColor(R.color.blue);
+//                scrollstddietfood.setVisibility(View.GONE);
+//                scrollvegdietfood.setVisibility(View.VISIBLE);
+
+
+                if (scrollvegdietfood.getVisibility() == View.GONE)
+                {
+
+                    scrollvegdietfood.setVisibility(View.VISIBLE);
+                    scrollstddietfood.setVisibility(View.GONE);
+                    mBtnStdDiet.setTextColor(getResources().getColor(R.color.black));
+                    mBtnVegDiet.setTextColor(getResources().getColor(R.color.white));
+                    mBtnVegDiet.setBackground(getResources().getDrawable(R.drawable.a2_grad));
+                    mBtnStdDiet.setBackground(getResources().getDrawable(R.drawable.corner1));
+                }
+                else {
+                    scrollvegdietfood.setVisibility(View.VISIBLE);
+                    scrollstddietfood.setVisibility(View.GONE);
+                    mBtnStdDiet.setTextColor(getResources().getColor(R.color.black));
+                    mBtnVegDiet.setTextColor(getResources().getColor(R.color.white));
+                    mBtnVegDiet.setBackground(getResources().getDrawable(R.drawable.a2_grad));
+                    mBtnStdDiet.setBackground(getResources().getDrawable(R.drawable.corner1));
+                }
+
+            }
+        });
+
+
+
+
+
+        dailyMeal.mLayoutStdDiet = (LinearLayout) inflate.findViewById(R.id.stddietfood);
+        dailyMeal.mLayoutVegDiet = (LinearLayout) inflate.findViewById(R.id.vegdietfood);
+
+
+
+        TextView textView5 = (TextView) inflate.findViewById(R.id.brkfast1);
+        TextView textView6 = (TextView) inflate.findViewById(R.id.brkfast2);
+        TextView textView7 = (TextView) inflate.findViewById(R.id.brkfast3);
+        TextView textView8 = (TextView) inflate.findViewById(R.id.lunch1);
+        TextView textView9 = (TextView) inflate.findViewById(R.id.lunch2);
+        TextView textView10 = (TextView) inflate.findViewById(R.id.lunch3);
+        TextView textView11 = (TextView) inflate.findViewById(R.id.snack1);
+        TextView textView12 = (TextView) inflate.findViewById(R.id.snack2);
+        TextView textView13 = (TextView) inflate.findViewById(R.id.dinner1);
+        TextView textView14 = (TextView) inflate.findViewById(R.id.dinner2);
+        TextView textView15 = (TextView) inflate.findViewById(R.id.dinner3);
+        String str3 = sb3;
+        TextView textView16 = (TextView) inflate.findViewById(R.id.vegbrkfast1);
+        String str4 = sb5;
+        TextView textView17 = (TextView) inflate.findViewById(R.id.vegbrkfast2);
+        String str5 = sb7;
+        TextView textView18 = (TextView) inflate.findViewById(R.id.vegbrkfast3);
+        TextView textView19 = (TextView) inflate.findViewById(R.id.veglunch1);
+        TextView textView20 = (TextView) inflate.findViewById(R.id.veglunch2);
+        TextView textView21 = (TextView) inflate.findViewById(R.id.veglunch3);
+        TextView textView22 = (TextView) inflate.findViewById(R.id.vegsnack1);
+        TextView textView23 = (TextView) inflate.findViewById(R.id.vegsnack2);
+        TextView textView24 = (TextView) inflate.findViewById(R.id.vegdinner1);
+        TextView textView25 = (TextView) inflate.findViewById(R.id.vegdinner2);
+        View view = inflate;
+        TextView textView26 = (TextView) inflate.findViewById(R.id.vegdinner3);
+        dailyMeal.ad_inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        switch (getArguments().getInt("DAY")) {
+            case 1:
+                TextView textView27 = textView18;
+                TextView textView28 = textView19;
+                TextView textView29 = textView22;
+                TextView textView30 = textView23;
+                TextView textView31 = textView24;
+                TextView textView32 = textView25;
+                TextView textView33 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView27.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView29.setText(getResources().getString(R.string.onecupofgreentea));
+                textView30.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView31.setText(getResources().getString(R.string.brownricewithveggies));
+                textView32.setText(getResources().getString(R.string.tomatosoup));
+                textView33.setVisibility(View.GONE);
+                break;
+            case 2:
+                TextView textView34 = textView18;
+                TextView textView35 = textView19;
+                TextView textView36 = textView21;
+                TextView textView37 = textView22;
+                TextView textView38 = textView23;
+                TextView textView39 = textView24;
+                TextView textView40 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView34.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView36.setVisibility(View.GONE);
+                textView37.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView38.setText(getResources().getString(R.string.fruitsalad));
+                textView39.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView40;
+                break;
+            case 3:
+                TextView textView41 = textView18;
+                TextView textView42 = textView19;
+                TextView textView43 = textView21;
+                TextView textView44 = textView22;
+                TextView textView45 = textView23;
+                TextView textView46 = textView24;
+                TextView textView47 = textView25;
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView41.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView43.setText(getResources().getString(R.string.yogurt));
+                textView44.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView45.setText(getResources().getString(R.string.oneapple));
+                textView46.setText(getResources().getString(R.string.brownricewithmushroom));
+                str2 = getResources().getString(R.string.tomatosoup);
+                textView3 = textView47;
+                break;
+            case 4:
+                TextView textView48 = textView18;
+                TextView textView49 = textView19;
+                TextView textView50 = textView22;
+                TextView textView51 = textView23;
+                TextView textView52 = textView24;
+                TextView textView53 = textView25;
+                TextView textView54 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView48.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView50.setText(getResources().getString(R.string.onecupofgreentea));
+                textView51.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView52.setText(getResources().getString(R.string.brownricewithveggies));
+                textView53.setText(getResources().getString(R.string.tomatosoup));
+                textView2 = textView54;
+                break;
+            case 5:
+                TextView textView55 = textView18;
+                TextView textView56 = textView19;
+                TextView textView57 = textView21;
+                TextView textView58 = textView22;
+                TextView textView59 = textView23;
+                TextView textView60 = textView24;
+                TextView textView61 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView55.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView57.setVisibility(View.GONE);
+                textView58.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView59.setText(getResources().getString(R.string.fruitsalad));
+                textView60.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView61;
+                break;
+            case 6:
+                TextView textView62 = textView18;
+                TextView textView63 = textView19;
+                TextView textView64 = textView21;
+                TextView textView65 = textView22;
+                TextView textView66 = textView23;
+                TextView textView67 = textView24;
+                TextView textView68 = textView25;
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView62.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView64.setText(getResources().getString(R.string.yogurt));
+                textView65.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView66.setText(getResources().getString(R.string.oneapple));
+                textView67.setText(getResources().getString(R.string.brownricewithmushroom));
+                str2 = getResources().getString(R.string.tomatosoup);
+                textView3 = textView68;
+                break;
+            case 7:
+                TextView textView69 = textView18;
+                TextView textView70 = textView19;
+                TextView textView71 = textView22;
+                TextView textView72 = textView23;
+                TextView textView73 = textView24;
+                TextView textView74 = textView25;
+                TextView textView75 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView69.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView71.setText(getResources().getString(R.string.onecupofgreentea));
+                textView72.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView73.setText(getResources().getString(R.string.brownricewithveggies));
+                textView74.setText(getResources().getString(R.string.tomatosoup));
+                textView2 = textView75;
+                break;
+            case 8:
+                TextView textView76 = textView18;
+                TextView textView77 = textView19;
+                TextView textView78 = textView21;
+                TextView textView79 = textView22;
+                TextView textView80 = textView23;
+                TextView textView81 = textView24;
+                TextView textView82 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView76.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView78.setVisibility(View.GONE);
+                textView79.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView80.setText(getResources().getString(R.string.fruitsalad));
+                textView81.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView82;
+                break;
+            case 9:
+                TextView textView83 = textView18;
+                TextView textView84 = textView19;
+                TextView textView85 = textView21;
+                TextView textView86 = textView22;
+                TextView textView87 = textView23;
+                TextView textView88 = textView24;
+                TextView textView89 = textView25;
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView83.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView85.setText(getResources().getString(R.string.yogurt));
+                textView86.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView87.setText(getResources().getString(R.string.oneapple));
+                textView88.setText(getResources().getString(R.string.brownricewithmushroom));
+                str2 = getResources().getString(R.string.tomatosoup);
+                textView3 = textView89;
+                break;
+            case 10:
+                TextView textView90 = textView18;
+                TextView textView91 = textView19;
+                TextView textView92 = textView22;
+                TextView textView93 = textView23;
+                TextView textView94 = textView24;
+                TextView textView95 = textView25;
+                TextView textView96 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView90.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView92.setText(getResources().getString(R.string.onecupofgreentea));
+                textView93.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView94.setText(getResources().getString(R.string.brownricewithveggies));
+                textView95.setText(getResources().getString(R.string.tomatosoup));
+                textView2 = textView96;
+                break;
+            case 11:
+                TextView textView97 = textView18;
+                TextView textView98 = textView19;
+                TextView textView99 = textView21;
+                TextView textView100 = textView22;
+                TextView textView101 = textView23;
+                TextView textView102 = textView24;
+                TextView textView103 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView97.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView99.setVisibility(View.GONE);
+                textView100.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView101.setText(getResources().getString(R.string.fruitsalad));
+                textView102.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView103;
+                break;
+            case 12:
+                TextView textView104 = textView18;
+                TextView textView105 = textView19;
+                TextView textView106 = textView21;
+                TextView textView107 = textView22;
+                TextView textView108 = textView23;
+                TextView textView109 = textView24;
+                TextView textView110 = textView25;
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView104.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView106.setText(getResources().getString(R.string.yogurt));
+                textView107.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView108.setText(getResources().getString(R.string.oneapple));
+                textView109.setText(getResources().getString(R.string.brownricewithmushroom));
+                str2 = getResources().getString(R.string.tomatosoup);
+                textView3 = textView110;
+                break;
+            case 13:
+                TextView textView111 = textView18;
+                TextView textView112 = textView19;
+                TextView textView113 = textView22;
+                TextView textView114 = textView23;
+                TextView textView115 = textView24;
+                TextView textView116 = textView25;
+                TextView textView117 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView111.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView113.setText(getResources().getString(R.string.onecupofgreentea));
+                textView114.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView115.setText(getResources().getString(R.string.brownricewithveggies));
+                textView116.setText(getResources().getString(R.string.tomatosoup));
+                textView2 = textView117;
+                break;
+            case 14:
+                TextView textView118 = textView18;
+                TextView textView119 = textView19;
+                TextView textView120 = textView21;
+                TextView textView121 = textView22;
+                TextView textView122 = textView23;
+                TextView textView123 = textView24;
+                TextView textView124 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView118.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView120.setVisibility(View.GONE);
+                textView121.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView122.setText(getResources().getString(R.string.fruitsalad));
+                textView123.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView124;
+                break;
+            case 15:
+                TextView textView125 = textView18;
+                TextView textView126 = textView19;
+                TextView textView127 = textView21;
+                TextView textView128 = textView22;
+                TextView textView129 = textView23;
+                TextView textView130 = textView24;
+                TextView textView131 = textView25;
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView125.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView127.setText(getResources().getString(R.string.yogurt));
+                textView128.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView129.setText(getResources().getString(R.string.oneapple));
+                textView130.setText(getResources().getString(R.string.brownricewithmushroom));
+                str2 = getResources().getString(R.string.tomatosoup);
+                textView3 = textView131;
+                break;
+            case 16:
+                TextView textView132 = textView18;
+                TextView textView133 = textView19;
+                TextView textView134 = textView22;
+                TextView textView135 = textView23;
+                TextView textView136 = textView24;
+                TextView textView137 = textView25;
+                TextView textView138 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView132.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView134.setText(getResources().getString(R.string.onecupofgreentea));
+                textView135.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView136.setText(getResources().getString(R.string.brownricewithveggies));
+                textView137.setText(getResources().getString(R.string.tomatosoup));
+                textView2 = textView138;
+                break;
+            case 17:
+                TextView textView139 = textView18;
+                TextView textView140 = textView19;
+                TextView textView141 = textView21;
+                TextView textView142 = textView22;
+                TextView textView143 = textView23;
+                TextView textView144 = textView24;
+                TextView textView145 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView139.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView141.setVisibility(View.GONE);
+                textView142.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView143.setText(getResources().getString(R.string.fruitsalad));
+                textView144.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView145;
+                break;
+            case 18:
+                TextView textView146 = textView18;
+                TextView textView147 = textView19;
+                TextView textView148 = textView21;
+                TextView textView149 = textView22;
+                TextView textView150 = textView23;
+                TextView textView151 = textView24;
+                TextView textView152 = textView25;
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView146.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView148.setText(getResources().getString(R.string.yogurt));
+                textView149.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView150.setText(getResources().getString(R.string.oneapple));
+                textView151.setText(getResources().getString(R.string.brownricewithmushroom));
+                str2 = getResources().getString(R.string.tomatosoup);
+                textView3 = textView152;
+                break;
+            case 19:
+                TextView textView153 = textView18;
+                TextView textView154 = textView19;
+                TextView textView155 = textView22;
+                TextView textView156 = textView23;
+                TextView textView157 = textView24;
+                TextView textView158 = textView25;
+                TextView textView159 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView153.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView155.setText(getResources().getString(R.string.onecupofgreentea));
+                textView156.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView157.setText(getResources().getString(R.string.brownricewithveggies));
+                textView158.setText(getResources().getString(R.string.tomatosoup));
+                textView2 = textView159;
+                break;
+            case 20:
+                TextView textView160 = textView18;
+                TextView textView161 = textView19;
+                TextView textView162 = textView21;
+                TextView textView163 = textView22;
+                TextView textView164 = textView23;
+                TextView textView165 = textView24;
+                TextView textView166 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView160.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView162.setVisibility(View.GONE);
+                textView163.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView164.setText(getResources().getString(R.string.fruitsalad));
+                textView165.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView166;
+                break;
+            case 21:
+                TextView textView167 = textView18;
+                TextView textView168 = textView19;
+                TextView textView169 = textView21;
+                TextView textView170 = textView22;
+                TextView textView171 = textView23;
+                TextView textView172 = textView24;
+                TextView textView173 = textView25;
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView167.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView169.setText(getResources().getString(R.string.yogurt));
+                textView170.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView171.setText(getResources().getString(R.string.oneapple));
+                textView172.setText(getResources().getString(R.string.brownricewithmushroom));
+                str2 = getResources().getString(R.string.tomatosoup);
+                textView3 = textView173;
+                break;
+            case 22:
+                TextView textView174 = textView18;
+                TextView textView175 = textView19;
+                TextView textView176 = textView22;
+                TextView textView177 = textView23;
+                TextView textView178 = textView24;
+                TextView textView179 = textView25;
+                TextView textView180 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView174.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView176.setText(getResources().getString(R.string.onecupofgreentea));
+                textView177.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView178.setText(getResources().getString(R.string.brownricewithveggies));
+                textView179.setText(getResources().getString(R.string.tomatosoup));
+                textView2 = textView180;
+                break;
+            case 23:
+                TextView textView181 = textView18;
+                TextView textView182 = textView19;
+                TextView textView183 = textView21;
+                TextView textView184 = textView22;
+                TextView textView185 = textView23;
+                TextView textView186 = textView24;
+                TextView textView187 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView181.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView183.setVisibility(View.GONE);
+                textView184.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView185.setText(getResources().getString(R.string.fruitsalad));
+                textView186.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView187;
+                break;
+            case 24:
+                TextView textView188 = textView18;
+                TextView textView189 = textView19;
+                TextView textView190 = textView21;
+                TextView textView191 = textView22;
+                TextView textView192 = textView23;
+                TextView textView193 = textView24;
+                TextView textView194 = textView25;
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView188.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView190.setText(getResources().getString(R.string.yogurt));
+                textView191.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView192.setText(getResources().getString(R.string.oneapple));
+                textView193.setText(getResources().getString(R.string.brownricewithmushroom));
+                str2 = getResources().getString(R.string.tomatosoup);
+                textView3 = textView194;
+                break;
+            case 25:
+                TextView textView195 = textView18;
+                TextView textView196 = textView19;
+                TextView textView197 = textView22;
+                TextView textView198 = textView23;
+                TextView textView199 = textView24;
+                TextView textView200 = textView25;
+                TextView textView201 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView195.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView197.setText(getResources().getString(R.string.onecupofgreentea));
+                textView198.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView199.setText(getResources().getString(R.string.brownricewithveggies));
+                textView200.setText(getResources().getString(R.string.tomatosoup));
+                textView2 = textView201;
+                break;
+            case 26:
+                TextView textView202 = textView18;
+                TextView textView203 = textView19;
+                TextView textView204 = textView21;
+                TextView textView205 = textView22;
+                TextView textView206 = textView23;
+                TextView textView207 = textView24;
+                TextView textView208 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView202.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView204.setVisibility(View.GONE);
+                textView205.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView206.setText(getResources().getString(R.string.fruitsalad));
+                textView207.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView208;
+                break;
+            case 27:
+                TextView textView209 = textView18;
+                TextView textView210 = textView19;
+                TextView textView211 = textView21;
+                TextView textView212 = textView22;
+                TextView textView213 = textView23;
+                TextView textView214 = textView24;
+                TextView textView215 = textView25;
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView209.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView211.setText(getResources().getString(R.string.yogurt));
+                textView212.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView213.setText(getResources().getString(R.string.oneapple));
+                textView214.setText(getResources().getString(R.string.brownricewithmushroom));
+                str2 = getResources().getString(R.string.tomatosoup);
+                textView3 = textView215;
+                break;
+            case 28:
+                TextView textView216 = textView18;
+                TextView textView217 = textView19;
+                TextView textView218 = textView22;
+                TextView textView219 = textView23;
+                TextView textView220 = textView24;
+                TextView textView221 = textView25;
+                TextView textView222 = textView26;
+                textView5.setText(getResources().getString(R.string.oneboiledegg));
+                textView6.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView7.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView8.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView9.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofgreentea));
+                textView12.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView13.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView14.setText(getResources().getString(R.string.Chickensoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.oneboiledegg));
+                textView17.setText(getResources().getString(R.string.cornflakeswithmilkandblueberries));
+                textView216.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView218.setText(getResources().getString(R.string.onecupofgreentea));
+                textView219.setText(getResources().getString(R.string.fiveoatmealcookies));
+                textView220.setText(getResources().getString(R.string.brownricewithveggies));
+                textView221.setText(getResources().getString(R.string.tomatosoup));
+                textView2 = textView222;
+                break;
+            case 29:
+                TextView textView223 = textView18;
+                TextView textView224 = textView19;
+                TextView textView225 = textView21;
+                TextView textView226 = textView22;
+                TextView textView227 = textView23;
+                TextView textView228 = textView24;
+                TextView textView229 = textView25;
+                textView5.setText(getResources().getString(R.string.onerobustabanana));
+                textView6.setText(getResources().getString(R.string.vegsandwich));
+                textView7.setText(getResources().getString(R.string.oats));
+                textView8.setText(getResources().getString(R.string.brownricewithtuneandveggies));
+                textView9.setText(getResources().getString(R.string.Chickensoup));
+                textView10.setText(getResources().getString(R.string.yogurt));
+                textView11.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView12.setText(getResources().getString(R.string.fruitsalad));
+                textView13.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView14.setText(getResources().getString(R.string.tomatosoup));
+                textView15.setVisibility(View.GONE);
+                textView16.setText(getResources().getString(R.string.onerobustabanana));
+                textView17.setText(getResources().getString(R.string.vegsandwich));
+                textView223.setText(getResources().getString(R.string.oats));
+                textView19.setText(getResources().getString(R.string.brownricewithveggies));
+                textView20.setText(getResources().getString(R.string.tomatosoup));
+                textView225.setVisibility(View.GONE);
+                textView226.setText(getResources().getString(R.string.oneglassoffreshlimejuice));
+                textView227.setText(getResources().getString(R.string.fruitsalad));
+                textView228.setText(getResources().getString(R.string.vegetablewheatwrap));
+                str = getResources().getString(R.string.mixedvegetablesoup);
+                textView = textView229;
+                break;
+            case 30:
+                textView5.setText(getResources().getString(R.string.onescrambledegg));
+                textView6.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView7.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView8.setText(getResources().getString(R.string.Chickenwheatwrapwithveggies));
+                textView9.setText(getResources().getString(R.string.tomatosoup));
+                textView10.setVisibility(View.GONE);
+                textView11.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView12.setText(getResources().getString(R.string.oneapple));
+                textView13.setText(getResources().getString(R.string.Brownricewithsalamonandmushroom));
+                textView14.setText(getResources().getString(R.string.mixedvegetablesoup));
+                textView15.setText(getResources().getString(R.string.yogurt));
+                textView16.setText(getResources().getString(R.string.onescrambledegg));
+                textView17.setText(getResources().getString(R.string.Breadtoastwithpeanutbutter));
+                textView18.setText(getResources().getString(R.string.onecupofherbaltea));
+                textView19.setText(getResources().getString(R.string.vegetablewheatwrap));
+                textView20.setText(getResources().getString(R.string.mixedvegetablewrap));
+                textView21.setText(getResources().getString(R.string.yogurt));
+                textView22.setText(getResources().getString(R.string.onecupofblackcoffee));
+                textView23.setText(getResources().getString(R.string.oneapple));
+                textView24.setText(getResources().getString(R.string.brownricewithmushroom));
+                textView25.setText(getResources().getString(R.string.tomatosoup));
+                textView26.setVisibility(View.GONE);
+                DailyMeal dailyMeal2 = dailyMeal;
+                break;
+        }
+
+
+
+        return  inflate;
+    }
+
+
+
+
+
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == 16908332) {
+            if (this.interstitial.isLoaded()) {
+                this.interstitial.show();
+            }
+            getFragmentManager().popBackStack();
+        }
+        return super.onOptionsItemSelected(menuItem);
+    }
+}
